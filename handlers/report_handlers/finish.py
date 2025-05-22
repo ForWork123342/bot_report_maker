@@ -11,6 +11,11 @@ router = Router(name=__name__)
 async def handle_weight_input(message: Message, state: FSMContext):
     weight = message.text.strip()
     
+    await message.bot.delete_message(chat_id=message.chat.id, message_id=message.message_id)
+        
+    # Удаляем последнее сообщение бота (то, где он просил ввести текст)
+    last_bot_msg = message.message_id - 1
+    await message.bot.delete_message(chat_id=message.chat.id, message_id=last_bot_msg)
     
     try:
         weight_value = float(weight.replace(',', '.'))  # На случай, если вводят "5,2" вместо "5.2"
@@ -43,6 +48,7 @@ async def handle_weight_input(message: Message, state: FSMContext):
     builder = InlineKeyboardBuilder()
 
     builder.button(text='🍏 Другой продукт', callback_data='add_product')
+    builder.button(text='❌ Отменить отчет', callback_data='delete_report')
     if True:
         builder.button(text="🏁 Закончить отчет!", callback_data='finish_night_report')
     await state.set_state(NightReportForm.end_report)  

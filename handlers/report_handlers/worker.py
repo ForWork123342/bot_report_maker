@@ -13,7 +13,7 @@ async def night_report(message: Message, state: FSMContext):
     inline_buttons = get_workers()
 
     await state.set_data({
-        "night_report_date": [],  # contain | data | worker name | product | pakaging | waight | 
+        "night_report_date": [],  # contain | data | worker name | product | pakaging | waight | package weight | product weight |
         "current_row": 0,
         "fullness": 0
     })

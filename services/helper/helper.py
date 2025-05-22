@@ -21,6 +21,8 @@ def change_table(data):
         for j in range(len(packaging)):
             if report_data[i][3] == packaging[j][0]:
                 report_data[i][3] = packaging[j][1]
+                report_data[i][5] = float(packaging[j][2])
+                report_data[i][6] = float(report_data[i][4]) - float(packaging[j][2])
 
     for row in report_data:
         print(row)
