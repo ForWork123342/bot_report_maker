@@ -1,0 +1,44 @@
+# Конфиденциальные данные
+.env
+*.env
+config.py
+secrets.py
+credentials.json
+
+# Файлы IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Виртуальное окружение
+venv/
+env/
+*.venv/
+bin/
+lib/
+include/
+pip-selfcheck.json
+.Python
+
+# Кэш Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Логи и временные файлы
+*.log
+*.tmp
+*.bak
+
+# Дистрибутивы и сборки
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Тестовые данные
+test_data/
